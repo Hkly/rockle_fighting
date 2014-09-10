@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: RockleGame_production
-  username: RockleGame
+  username: user
   password: <%= ENV['ROCKLEGAME_DATABASE_PASSWORD'] %>
