@@ -1,0 +1,10 @@
+<h1>New Rockle</h1>
+<form>
+  <% @species.each do |type| %>
+    <label for="species">Species: <%= type %></label>
+    <input type="radio" 
+           id="species"
+           name="rockel[species]"
+           value="<%= type %>">
+  <% end %>
+</form>
