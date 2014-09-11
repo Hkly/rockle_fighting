@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :ensure_signed_out, only: [:new, :create]
+  before_action :ensure_signed_in, only: [:show]
 
   def new
     @user = User.new
@@ -10,7 +12,7 @@ class UsersController < ApplicationController
 
     if @user.save
       signin_user!(@user)
-      redirect_to root_url # Where to redirect to laters?
+      redirect_to root_url
     else
       flash.now[:error] = @user.errors.full_messages
       render 'new'
