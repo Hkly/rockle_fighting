@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910230548) do
+ActiveRecord::Schema.define(version: 20140911042128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rockles", force: true do |t|
+    t.string   "name",                   null: false
+    t.string   "species",                null: false
+    t.integer  "user_id",                null: false
+    t.integer  "level",      default: 1
+    t.integer  "exp",        default: 0
+    t.integer  "max_hp"
+    t.integer  "hp_points",  default: 0
+    t.integer  "atk_points", default: 0
+    t.integer  "def_points", default: 0
+    t.integer  "spd_points", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rockles", ["name"], name: "index_rockles_on_name", unique: true, using: :btree
+  add_index "rockles", ["user_id"], name: "index_rockles_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                      null: false
