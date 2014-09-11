@@ -1,5 +1,6 @@
 class RocklesController < ApplicationController
   before_action :ensure_signed_in
+  
 
   def new
     @species = %w(a b c d e)
@@ -14,12 +15,13 @@ class RocklesController < ApplicationController
     if @rockle.save
       redirect_to rockle_url(@rockle)
     else
-
+      flash[:error] = @rockle.errors.full_messages
+      redirect_to new_user_rockle_url(current_user)
     end
   end
 
   def show
-    @rockle = Rockle.find(params(:id)) #TODO: check params
+    @rockle = Rockle.find(params[:id]) #TODO: check params
     render 'show'
   end
 

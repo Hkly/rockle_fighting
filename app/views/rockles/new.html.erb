@@ -1,10 +1,18 @@
 <h1>New Rockle</h1>
-<form>
+<form role="form" id="new-rockle" action="<%= user_rockles_url %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <% @species.each do |type| %>
-    <label for="species">Species: <%= type %></label>
+    <label for="species-<%= type %>">Species: <%= type %></label>
     <input type="radio" 
-           id="species"
-           name="rockel[species]"
+           id="species-<%= type %>"
+           name="rockle[species]"
            value="<%= type %>">
   <% end %>
+  <br>
+  <label for="rockle-name">Name: </label>
+  <input type="text"
+         id="rockle-name"
+         name="rockle[name]">
+  <br>
+  <button type="submit">Select</button>
 </form>
