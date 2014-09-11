@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(params[:username], params[:password])
+    @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
 
     if @user
       signin_user!(@user)
       redirect_to root_url
     else
-      @user = User.new(username: params[:username])
+      @user = User.new(username: params[:user][:username])
       flash.now[:error] = ["Invalid username/password combo"]
       render 'new'
     end
