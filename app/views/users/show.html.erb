@@ -1,2 +1,4 @@
 <h1><%= @user.username %>'s Profile</h1>
 Gold: <%= @user.gold%>
+<br>
+Rockle: <%= link_to @user.rockle.name, rockle_url(@user.rockle) %>
