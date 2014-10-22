@@ -23,4 +23,23 @@ class Rockle < ActiveRecord::Base
   validates :name, :user_id, presence: true
 
   belongs_to :user
+
+  after_create :roll_stats
+  after_create :compute_stats
+
+
+  private
+
+  def compute_stats
+    self.update_attribute(:max_hp, self.hp_points * 10)
+  end
+
+  def roll_stats
+    attr_hash = {hp_points: "", atk_points: "", def_points: "", spd_points: ""}
+    %w(hp_points atk_points def_points spd_points).each do |attr|
+      attr_hash[attr] = rand(5..10)
+    end
+    self.update_attributes(attr_hash)
+  end
+
 end

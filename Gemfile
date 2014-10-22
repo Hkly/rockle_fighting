@@ -7,6 +7,10 @@ gem 'rails', '4.1.5'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+gem 'haml-rails'
+gem 'haml'
+gem 'andand'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -28,9 +32,14 @@ gem 'spring',        group: :development
 
 gem 'bcrypt'
 
-group :development do 
+group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 2.14'
+  gem 'factory_girl_rails'
 end
