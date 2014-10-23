@@ -3,7 +3,7 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <% @species.each do |type| %>
     <label for="species-<%= type %>">Species: <%= type %></label>
-    <input type="radio" 
+    <input type="radio"
            id="species-<%= type %>"
            name="rockle[species]"
            value="<%= type %>">

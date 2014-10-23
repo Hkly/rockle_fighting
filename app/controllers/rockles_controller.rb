@@ -1,6 +1,5 @@
 class RocklesController < ApplicationController
   before_action :ensure_signed_in
-  
 
   def new
     @species = %w(a b c d e)
