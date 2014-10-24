@@ -15,8 +15,12 @@
 <% flash.each do |key, value| %>
   <div class="flash <%= key %>">
     <ul>
-      <% value.each do |msg| %>
-        <li><%= msg %></li>
+      <% if value.is_a?(String) %>
+        <li><%= value %></li>
+      <% else %>
+        <% value.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>

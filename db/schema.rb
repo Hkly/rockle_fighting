@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911042128) do
+ActiveRecord::Schema.define(version: 20141024015807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140911042128) do
     t.integer  "spd_points", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_url"
   end
 
   add_index "rockles", ["name"], name: "index_rockles_on_name", unique: true, using: :btree

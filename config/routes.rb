@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   resources :rockles, only: [:index, :show]
 
+  get '/rockle/fight/:id', to: "rockles#fight", as: "rockle_fight"
+
 end
