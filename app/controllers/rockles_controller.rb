@@ -8,7 +8,11 @@ class RocklesController < ApplicationController
   end
 
   def index
-    @rockles_in_range = Rockle.where(:level => (current_user.rockle.level - 3..current_user.rockle.level + 3)).where.not(:id => current_user.rockle.id)
+    if current_user.rockle.present?
+      @rockles_in_range = Rockle.where(:level => (current_user.rockle.level - 3..current_user.rockle.level + 3)).where.not(:id => current_user.rockle.id)
+    else
+      redirect_to :back, :notice => 'Sorry only Rockles are allowed to fight in the stadium.'
+    end
   end
 
   def create
