@@ -3,4 +3,7 @@ Gold: <%= @user.gold%>
 <br>
 <% if @user.rockle.present? %>
 Rockle: <%= link_to @user.rockle.name, rockle_url(@user.rockle) %>
+<div>
+  <%= link_to "Battle Stadium", rockles_path %>
+</div>
 <% end %>

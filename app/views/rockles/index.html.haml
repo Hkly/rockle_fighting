@@ -1,0 +1,16 @@
+%h1 Challenge a Rockle!
+%table
+  %thead
+    %th
+    %th Name
+    %th Level
+    %th Owner
+    %th
+  %tbody
+    -@rockles_in_range.each do |rockle|
+      %tr
+        %td= image_tag rockle.image_url, :style => 'width:50px;'
+        %td= rockle.name
+        %td= rockle.level
+        %td= rockle.user.username
+        %td= link_to "FIGHT!", rockle_fight_path(rockle)
