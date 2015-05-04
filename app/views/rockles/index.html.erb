@@ -1,0 +1,19 @@
+<ul>
+
+  <% @rockles.each do |rockle| %>
+
+<li><%= rockle.name %>:
+  <br/>
+  <span>Owner: <a href="<%= user_url({id: rockle.user.id}) %>"><%= rockle.user.username %></a></span>
+  <span>Level: <%= rockle.level %></span>
+  <span>Exp: <%= rockle.exp %></span>
+  <span>Max HP: <%= rockle.max_hp %></span>
+  <span>ATK: <%= rockle.atk_points %></span>
+  <span>DEF: <%= rockle.def_points %></span>
+  <span>SPD: <%= rockle.spd_points %></span>
+  <span>HP: <%= rockle.hp_points %></span>
+</li>
+
+<% end %>
+
+</ul>

@@ -4,7 +4,17 @@ class RocklesController < ApplicationController
   def new
     @species = %w(a b c d e)
     @rockle = Rockle.new
-    render 'new'
+    @user_id = current_user.id
+
+  end
+
+  def index
+    @rockles = Rockle.all
+
+    @rockles.each do |rockle|
+      rockle.user = User.find(rockle.user_id)
+    end
+    render 'index'
   end
 
   def create
@@ -21,7 +31,7 @@ class RocklesController < ApplicationController
 
   def show
     @rockle = Rockle.find(params[:id]) #TODO: check params
-    render 'show'
+    @rockle.user = User.find(@rockle.user_id)
   end
 
   private

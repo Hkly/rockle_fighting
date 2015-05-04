@@ -1,5 +1,6 @@
 <h1><%= @rockle.name %></h1>
 <ul>
+  <li>Owner: <a href="<%= user_url(@rockle.user_id)%>"><%= @rockle.user.username%></a></li>
   <li>Level: <%= @rockle.level %></li>
   <li>Exp: <%= @rockle.exp %></li>
   <li>Max HP: <%= @rockle.max_hp %></li>
