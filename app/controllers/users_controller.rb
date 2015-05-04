@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render 'new'
   end
 
   def create
@@ -21,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @user.rockle = Rockle.find_by({user: User.find(@user.id)})
     render 'show'
   end
 
